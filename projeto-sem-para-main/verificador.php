@@ -23,9 +23,14 @@ switch (sizeof($Formatado)) {
         $resultado_usuario = mysqli_query($conn, $sql);
             if (mysqli_num_rows($resultado_usuario) > 0) {
                 sleep(3.5);
-                $_SESSION['msg2'] = "<p style='color:#1aff00; font-size:1.1rem;'>É um prazer te receber!</p>
+
+                while($row = mysqli_fetch_assoc($resultado_usuario)) {
+                $user = $row['Nome'];
+                }
+                $_SESSION['msg2'] = "<p style='color:#1aff00; font-size:1.1rem;'>É um prazer te receber $user!</p>
                 <button>Gerar boleto</button>";
-                header("Location: pessoafisica.php");    
+                header("Location: user.php");
+                
             } else {
                 sleep(5);
                 $_SESSION['msg'] = "*CPF não encontrado";
@@ -46,9 +51,13 @@ switch (sizeof($Formatado)) {
                 $resultado_usuario = mysqli_query($conn, $sql);
                     if (mysqli_num_rows($resultado_usuario) > 0) {
                         sleep(3.5);
-                        $_SESSION['msg2'] = "<p style='color:#1aff00; font-size:1.1rem;'>É um prazer te receber!</p>
+
+                        while ($row = mysqli_fetch_assoc($resultado_usuario)) {
+                            $user = $row['Nome'];
+                        }
+                        $_SESSION['msg2'] = "<p style='color:#1aff00; font-size:1.1rem;'>É um prazer te receber $user!</p>
                         <button>Gerar boleto</button>";
-                        header("Location: pessoafisica.php");    
+                        header("Location: user.php");    
                     } else {
                         sleep(5);
                         $_SESSION['msg'] = "*CNPJ não encontrado";
