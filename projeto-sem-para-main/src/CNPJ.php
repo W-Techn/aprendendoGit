@@ -30,7 +30,7 @@
             return false;
         }
     } else {
-        if ($this->cnpj[13] == 11 - $parametroSegundoDigito) {
+        if ($this->cnpj[13] == 11 - $param) {
             return true;
         } else {
             return false;
