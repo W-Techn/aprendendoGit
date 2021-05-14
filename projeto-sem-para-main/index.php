@@ -37,7 +37,7 @@ session_start();
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-key"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="CPF" name="chave" data-js="Cpf" placeholder="digite seu CPF ou CNPJ" required>
+                        <input type="text" class="form-control" id="CPF" name="chave" placeholder="digite seu CPF ou CNPJ" required>
                     </div>
                     <div  class="d-inline">
                         <p style='color:#ffffff; font-size:1rem;' class="d-inline">
@@ -66,11 +66,12 @@ session_start();
 </div>
 <script src="js/loading.js"></script>
 <script src="js/jquery.mask.min.js"></script>
+<script src="js/buscar-cliente.js"></script>
 <script> 
 $(document).ready(function(){
 
     var SPMaskBehavior = function (val) {
-  return val.replace(/\D/g, '').length === 14 ? '00.000.000/0000-00' : '000.000.000-00999';
+  return val.replace(/\D/g, '').length === 14 ? '00.000.000/0000–00' : '000.000.000–00999';
 },
 spOptions = {
   onKeyPress: function(val, e, field, options) {
@@ -82,7 +83,7 @@ spOptions = {
 
 
 </script>
-<!-- <script src="js/inputcampo.js"></script> -->
+
 </body>
 </html>
 
