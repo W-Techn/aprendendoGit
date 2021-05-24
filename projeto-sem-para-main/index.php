@@ -1,89 +1,85 @@
 <?php
 session_start();
 ?>
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> <!-- página em que o usuário fara login -->
+<html lang="en"> 
 <head>
-    <meta charset="utf-8">
-    <title>Negócios Sem Parar</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="inicio.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!--Fontawesome CDN-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <!--Custom styles-->
-    <link rel="stylesheet" type="text/css" href="css/inicio.css">
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <meta charset="utf-8"> <!-- encoding -->
+  <title>Negócios Sem Parar</title> <!-- nome da página -->
+  <!-- Imports -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <!--Custom styles-->
+  <link rel="stylesheet" type="text/css" href="css/inicio.css">
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script> 
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <!-- IMPORTANTE! -->
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
 </head>
 
-<body>
-
-<div class="container">
-    <div class="d-flex justify-content-center h-100">
-        <div class="card">
-            <div class="card-header">
-                <h3>Fazer uma consulta</h3>
-                <div class="d-flex justify-content-end social_icon">
-                </div>
-            </div>
-            <div class="card-body">
-                <form action="verificador.php" method="post" id="formulario">
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-key"></i></span>
-                        </div>
-                        <input type="text" class="form-control" id="CPF" name="chave" placeholder="digite seu CPF ou CNPJ" required>
-                    </div>
-                    <div  class="d-inline">
-                        <p style='color:#ffffff; font-size:1rem;' class="d-inline">
-                        <?php
+<body> 
+  <div id="container"> 
+    <div class="row">        
+    </div> <!-- Disponibilização dos ele- -->
+    <div class="row"> <!-- mentos e respon- -->
+      <div class="col-md-12"> <!-- sividade -->
+        <div class="pr-wrap">
+        </div>
+        <div class="wrap">
+          <form class="login" action="verificador.php" method="post" id="formulario"> <!-- incialização e estilização do formuário (classe Login) -->
+            <img id="logo" src="logo-sem-parar.png"/>
+            <p class="form-title">
+            sign in</p> <!-- título com cor da eSem Parar -->
+            <input type="text" placeholder="CPF ou CNPJ"  id="CPF" name="chave" required /> <!-- CPF com máscara que alterna para CNPJ ao atingir a quantidade de 12 dígtos -->
+            <div>
+              <p style='color:darkred; font-size:.8rem;'>
+                <?php
                         if(isset($_SESSION['msg'])) { //aqui ira inserir/retirar as mensagens de confirmação do CPF;
-                            echo $_SESSION['msg'];
-                            unset($_SESSION['msg']);
+                          echo $_SESSION['msg'];
+                          unset($_SESSION['msg']);
                         }
                         ?>
-                        </p>
+                      </p>
                     </div>
-                    <div class="form-group d-inline">
-                        <button class="btn float-right login_btn"> VERIFICAR </button>
+                    <input type="submit" value="Verificar" class="btn btn-danger btn-sm" />
+                    <div class="remember-forgot">
+                          </div>
+                        </div>
+                        </div>
+                      </div>
                     </div>
-                    <button class="btn btn-primary d-none" id="carregando" type="button" disabled>
-                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                        Consultando...
-                    </button> 
-                  </form> 
+                  </form>
+                  <a type="button" role="button" class="fixed-bottom btn btn-success btn-circle btn-xl" href="https://api.whatsapp.com/send/?phone=5511975141378&text=Ola&app_absent=0"><img id="zapzap" src="css/whatsapp-icon.webp"></a> <!-- botão do Whatsapp que redireciona para o atendimento do Sem Parar -->
+                </div>
+                <div>
+                  <a _ngcontent-opv-c1="" class="fixed-bottom auto_inicio" id="link" href="http://www.fulltimesolucoes.com.br/" target="_blank">A Fulltime é uma empresa autorizada pelo Sem Parar para a cobrança de débito.</a> <!-- link borda da página que direciona para a Full Time -->
+                </div>
+              </div>
             </div>
-            <div class="d-flex justify-content-center">
-                <a class="fixed-bottom auto_inicio links" href="https://www.fulltimesolucoes.com.br/">A Fulltime é uma empresa autorizada pelo Sem Parar para a cobrança de débito</a>
-            </div>
+          </div>
         </div>
-    </div>
-</div>
-<script src="js/loading.js"></script>
-<script src="js/jquery.mask.min.js"></script>
-<script src="js/buscar-cliente.js"></script>
-<script> 
-$(document).ready(function(){
-
-    var SPMaskBehavior = function (val) {
-  return val.replace(/\D/g, '').length === 14 ? '00.000.000/0000–00' : '000.000.000–00999';
-},
-spOptions = {
-  onKeyPress: function(val, e, field, options) {
-      field.mask(SPMaskBehavior.apply({}, arguments), options);
-    }
-};  
-  $('#CPF').mask(SPMaskBehavior, spOptions);
-});
-
-
-</script>
-
-</body>
-</html>
-
+      </div>
+      <script src="js/jquery.mask.min.js"></script>
+      <script> 
+        // Formatador da máscara do input
+        $(document).ready(function(){ 
+          // ao documento ser carregado para leitura, fazer:
+          var SPMaskBehavior = function (val) { //uma variável que será uma função que fará
+            return val.replace(/\D/g, '').length === 14 ? '00.000.000/0000–00' : '000.000.000–00999';
+          }, //o retorno do valor inputado pelo usuário formatado de acordo com a quantidade: se for 14 digitos, uma máscara,se for menos, outra máscara. Os números 9 após a mascara de CPF, possibilitam que o usuário digite os numeros a mais indicando CNPJ
+          spOptions = { //essa variável 
+            onKeyPress: function(val, e, field, options) { //serve 
+              field.mask(SPMaskBehavior.apply({}, arguments), options); //para criar as 
+            } //opções que serão inseridas
+          }; //no campo do CPF  
+          $('#CPF').mask(SPMaskBehavior, spOptions); //o campo de #CPF 
+        }); //será então uma alternância
+//entre os valores formatados de acordo 
+//com a quantidade de caracteres
+      </script>
+    </body>
+    </html>
