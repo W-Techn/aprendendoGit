@@ -1,7 +1,7 @@
 <?php
 session_start();
 ?>
-<!DOCTYPE html> <!-- página em que o usuário fara login -->
+<!DOCTYPE html> <!-- página em que o usuário fará login -->
 <html lang="en"> 
 <head>
   <meta charset="utf-8"> <!-- encoding -->
